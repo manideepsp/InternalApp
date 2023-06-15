@@ -45,5 +45,15 @@
     <Compile Include="BALValidations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessModel\BusinessModel.csproj">
+      <Project>{9eac86e4-3b24-4e7c-b3fe-ded4b487b61e}</Project>
+      <Name>BusinessModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{f848833b-1d92-4b8b-903e-5c8b0cfe75a6}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

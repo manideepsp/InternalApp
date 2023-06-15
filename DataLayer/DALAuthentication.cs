@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,20 +9,35 @@ namespace DataLayer
 {
     public class DALAuthentication
     {
-        public bool Login()
+        DataSources data = new DataSources();
+
+        public bool Register(User user)
         {
+            data.listData.Add(user.Username);
+            data.listData.Add(user.Password);
+            data.listData.Add(user.Mobile);
+            data.listData.Add(user.Email);
+
+            data.userData.Add(data.listData);
+            return true;
+        }
+
+        public bool IsExisting(string username)
+        {
+            for (int i = 0; i < data.userData.Count; i++)
+            {
+                if (data.userData[i].Contains(username))
+                    return true;
+            }
             return false;
         }
-        public string Register()
+        public bool IsExisting(string username, string password)
         {
-            return "";
-        }
-        public bool ForgotPassword()
-        {
-            return false;
-        }
-        public bool Logout()
-        {
+            for (int i = 0; i < data.userData.Count; i++)
+            {
+                if (data.userData[i].Contains(username) && data.userData[i].Contains(password))
+                    return true;
+            }
             return false;
         }
     }
