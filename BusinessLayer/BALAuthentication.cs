@@ -7,22 +7,25 @@ namespace BusinessLayer
     public class BALAuthentication
     {
         BALValidations validate = new BALValidations();
-        DataSources dataOperation = new DataSources();
+        DALAuthentication dataOperation = new DALAuthentication();
         bool decision = false;
         public bool Login(User user, Literal lit)
         {
+            Console.WriteLine(lit.login);
             Console.Write(lit.username);
             user.Username = Console.ReadLine();
             Console.WriteLine(lit.password);
             user.Password = Console.ReadLine();
 
             decision = validate.IsValidLogin(user.Username, user.Password);
+            Console.WriteLine(lit.loggedIn);
             return decision;
 
         }
         bool flag = true;
         public bool Register(User user, Literal lit)
         {
+            Console.WriteLine(lit.register);
             Console.Write(lit.username);
             user.Username = Console.ReadLine();
             flag = validate.IsValidUsername(user.Username); //returns true if username is valid, not already exist
@@ -72,15 +75,16 @@ namespace BusinessLayer
             }
 
             decision = dataOperation.Register(user);
-            Console.WriteLine(lit.success);
+            Console.WriteLine(lit.successRegistration);
             return decision;
 
         }
         public bool ForgotPassword(User user, Literal lit)
         {
-            Console.WriteLine(lit.username);
+            Console.WriteLine(lit.forgotPassword);
+            Console.Write(lit.username);
             user.Username = Console.ReadLine();
-            decision = validate.IsValidUserName(user.Username); //returns true if username is valid, not already exist
+            decision = validate.IsValidUsername(user.Username); //returns true if username is valid, not already exist
             if (!decision)
             {
                 Console.Write(lit.userExist);
@@ -105,24 +109,25 @@ namespace BusinessLayer
                 user.ConfirmPassword = Console.ReadLine();
                 flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword);
             }
-            Console.WriteLine(lit.success);
+            Console.WriteLine(lit.successForgotPassword);
             return true;
         }
-        public bool Logout(User user, Literal lit)
+        public bool Logout(Literal lit)
         {
             Console.WriteLine(lit.logout);
             ConsoleKeyInfo cki = Console.ReadKey();
-            if(cki.Key == ConsoleKey.Y)
+            if (cki.Key == ConsoleKey.Y)
             {
                 decision = true;
+                Console.WriteLine(lit.successLogout);
             }
             else
             {
-                decision= false;
+                decision = false;
             }
             return decision;
         }
-        public bool switchDefault(User user, Literal lit)
+        public bool SwitchDefault(Literal lit)
         {
             Console.WriteLine(lit.switchDefault);
             ConsoleKeyInfo cki = Console.ReadKey();

@@ -1,11 +1,5 @@
-﻿using BusinessModel;
-using DataLayer;
-using System;
-using System.Collections.Generic;
+﻿using DataLayer;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataLayer;
 using System.Text.RegularExpressions;
 
 namespace BusinessLayer
@@ -15,7 +9,7 @@ namespace BusinessLayer
         DALAuthentication authenticate = new DALAuthentication();
         public bool IsValidUsername(string userName)
         {
-            if(!authenticate.IsExisting(userName))
+            if (!authenticate.IsExisting(userName))
             {
                 return true;
             }
@@ -44,7 +38,7 @@ namespace BusinessLayer
         }
         public bool IsValidEmail(string email)
         {
-            if(email.Contains("@") && email.Contains(".") && email.IndexOf("@") < email.IndexOf("."))
+            if (email.Contains("@") && email.Contains(".") && email.IndexOf("@") < email.IndexOf("."))
             {
                 return true;
             }

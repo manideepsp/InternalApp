@@ -1,11 +1,4 @@
-﻿using System;
-
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BusinessModel
+﻿namespace BusinessModel
 {
     public class Literal
     {
@@ -31,12 +24,14 @@ namespace BusinessModel
                 + "\n* 2. To Register As new user"
                 + "\n* 3. If you forgot you password"
                 + "\n* enter any other key to exit";
-        public string div = "*********************************************";
-        public string switchDefault = "do you want to exit y/n ?";
-        public string success = "success";
+        public string div = "\n*********************************************";
+        public string switchDefault = "\ndo you want to exit y/n ?";
+        public string successRegistration = "\nUser created Successfully ! ";
+        public string successForgotPassword = "\nPassword changed successfully, redirecting to login page";
+        public string successLogout = "\nLogged out successfully, redirecting to login page.";
 
-        public string loggedIn = $"Login successfull, welcome User}.";
-        public string logout = "Do you want to logout";
+        public string loggedIn = "\nLogin successfull, welcome User.";
+        public string logout = "\nDo you want to logout press y";
         public string login = "\nWelcome to Login Page:";
         public string register = "\nWelcome to New User, enter your details to create new account:";
         public string forgotPassword = "\nWelcome to forgot Password page";
