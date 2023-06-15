@@ -1,5 +1,7 @@
 ﻿using BusinessModel;
 using System;
+using System.Collections.Generic;
+//using DataSources;
 
 namespace ConsoleApp
 {
@@ -10,6 +12,9 @@ namespace ConsoleApp
             User user = new User();
             Literal lit = new Literal();
             Authentication authenticate = new Authentication();
+
+            //DataSources.userData.Add(new List<string> { "name", "password", "emial", "mobile" });
+            //Console.WriteLine(DataSources.userData[0][1]);
 
             Console.WriteLine(lit.div);
             Console.WriteLine(lit.menu);
