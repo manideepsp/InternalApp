@@ -1,5 +1,8 @@
 ﻿namespace BusinessModel
 {
+    /// <summary>
+    /// This class contains all the properties of object
+    /// </summary>
     public class User
     {
         private string _username;

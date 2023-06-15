@@ -9,6 +9,13 @@ namespace BusinessLayer
         BALValidations validate = new BALValidations();
         DALAuthentication dataOperation = new DALAuthentication();
         bool decision = false;
+
+        /// <summary>
+        /// Implements Login Functionality, checks if username and password pair is present and returns bool
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="lit"></param>
+        /// <returns></returns>
         public bool Login(User user, Literal lit)
         {
             Console.WriteLine(lit.login);
@@ -23,6 +30,13 @@ namespace BusinessLayer
 
         }
         bool flag = true;
+
+        /// <summary>
+        /// Implements Register user functionality, validates all the inputs given and calls method to write it to database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="lit"></param>
+        /// <returns></returns>
         public bool Register(User user, Literal lit)
         {
             Console.WriteLine(lit.register);
@@ -79,6 +93,13 @@ namespace BusinessLayer
             return decision;
 
         }
+
+        /// <summary>
+        /// Implements forgotpassword functionality, validates the password, calls the method to update in database
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="lit"></param>
+        /// <returns></returns>
         public bool ForgotPassword(User user, Literal lit)
         {
             Console.WriteLine(lit.forgotPassword);
@@ -112,6 +133,12 @@ namespace BusinessLayer
             Console.WriteLine(lit.successForgotPassword);
             return true;
         }
+
+        /// <summary>
+        /// Implements the logout functionality
+        /// </summary>
+        /// <param name="lit"></param>
+        /// <returns></returns>
         public bool Logout(Literal lit)
         {
             Console.WriteLine(lit.logout);
@@ -127,6 +154,12 @@ namespace BusinessLayer
             }
             return decision;
         }
+
+        /// <summary>
+        /// Implements the Switch default functionality
+        /// </summary>
+        /// <param name="lit"></param>
+        /// <returns></returns>
         public bool SwitchDefault(Literal lit)
         {
             Console.WriteLine(lit.switchDefault);

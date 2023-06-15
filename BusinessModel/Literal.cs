@@ -1,5 +1,8 @@
 ﻿namespace BusinessModel
 {
+    /// <summary>
+    /// This class contains all the string literals used in the Application
+    /// </summary>
     public class Literal
     {
         #region "commented out"
