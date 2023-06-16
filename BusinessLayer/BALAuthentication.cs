@@ -6,8 +6,14 @@ namespace BusinessLayer
 {
     public class BALAuthentication
     {
-        BALValidations validate = new BALValidations();
-        DALAuthentication dataOperation = new DALAuthentication();
+        private BALValidations validate;
+        private DALAuthentication dataOperation;
+        public BALAuthentication()
+        {
+            validate = new BALValidations();
+            dataOperation = new DALAuthentication();
+        }
+
         bool decision = false;
 
         /// <summary>

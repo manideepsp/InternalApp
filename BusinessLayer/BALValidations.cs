@@ -9,8 +9,11 @@ namespace BusinessLayer
     /// </summary>
     public class BALValidations
     {
-        DALAuthentication authenticate = new DALAuthentication();
-
+        private DALAuthentication dalAuth;
+        public BALValidations()
+        {
+            dalAuth = new DALAuthentication();
+        }
         /// <summary>
         /// Calls data method to check if user name is valid, passes the username and checks if the username exist in the database or not
         /// </summary>
