@@ -2,9 +2,9 @@
 {
     public class DataFactory
     {
-        public DALAuthentication CreateObject()
+        DALAuthentication obj = new DALAuthentication();
+        public IDAL CreateObject()
         {
-            DALAuthentication obj = new DALAuthentication();
             return obj;
         }
     }

@@ -10,11 +10,13 @@ namespace ConsoleApp
 	public class Authentication
 	{
 		private BALAuthentication balAuth;
-		public Authentication()
+        private BALValidations validate;
+
+        public Authentication()
 		{
-			balAuth = new BALAuthentication();
+            validate = new BALValidations();
+            balAuth = new BALAuthentication();
 		}
-		bool decision;
 
 		/// <summary>
 		/// Implements login authentication signature
@@ -44,9 +46,9 @@ namespace ConsoleApp
 
 		//Implements logout authentication signature
 		public int Logout()
-		{
-			decision = balAuth.Logout();
-			if (decision)
+        {
+            Console.WriteLine(Literal.logout);
+			if (balAuth.Logout())
 			{
 				return 1;
 			}
@@ -56,26 +58,64 @@ namespace ConsoleApp
 		//Implements Register authentication signature
 		public int Register(User user)
 		{
-			decision = balAuth.Register(user);
-			return 1;
-		}
+			bool flag = true;
+            Console.WriteLine(Literal.register);
+            Console.Write(Literal.username);
+            user.Username = Console.ReadLine();
+            flag = validate.IsValidUsername(user.Username); //returns true if username is valid, not already exist
+            if (!flag)
+            {
+                Console.WriteLine(Literal.userExist);
+                return 1;
+            }
 
-		//Implements ForgotPassword authentication signature
-		public int ForgotPassword(User user)
-		{
-			decision = balAuth.ForgotPassword(user);
-			if (decision)
-			{
-				return 1;
-			}
+            Console.Write(Literal.password);
+            user.Password = Console.ReadLine();
+            flag = validate.IsValidPassword(user.Password); //returns true if password is valid
+            while (!flag)
+            {
+                Console.Write(Literal.password);
+                user.Password = Console.ReadLine();
+                flag = validate.IsValidPassword(user.Password);
+            }
+            Console.Write(Literal.confirmPassword);
+            user.ConfirmPassword = Console.ReadLine();
+            flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword); //returns true if password mathces
+            while (!flag)
+            {
+                Console.Write(Literal.confirmPassword);
+                user.ConfirmPassword = Console.ReadLine();
+                flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword);
+            }
+
+            Console.Write(Literal.mobile);
+            user.Mobile = Console.ReadLine();
+            flag = validate.IsValidMobile(user.Mobile); //returns true if mobile is valid
+            while (!flag)
+            {
+                Console.Write(Literal.mobile);
+                user.Mobile = Console.ReadLine();
+                flag = validate.IsValidMobile(user.Mobile);
+            }
+
+            Console.Write(Literal.email);
+            user.Email = Console.ReadLine();
+            flag = validate.IsValidEmail(user.Email); //returns true if email is valid
+            while (!flag)
+            {
+                Console.Write(Literal.email);
+                user.Email = Console.ReadLine();
+                flag = validate.IsValidEmail(user.Email);
+            }
+            balAuth.Register(user);
 			return 1;
 		}
 
 		//Implements SwitchDefault signature
 		public int SwitchDefault()
 		{
-			decision = balAuth.SwitchDefault();
-			if (decision)
+            Console.WriteLine(Literal.switchDefault);
+			if (balAuth.SwitchDefault())
 			{
 				return 0;
 			}

@@ -51,13 +51,8 @@ namespace ConsoleApp
 						Console.WriteLine(Literal.div, Literal.register);
 						redirect = auth.Register(user);
 						break;
-					// Forgot password
-					case 3:
-						Console.WriteLine(Literal.div, Literal.forgotPassword);
-						redirect = auth.ForgotPassword(user);
-						break;
 					// Logout
-					case 4:
+					case 3:
 						Console.WriteLine(Literal.div, Literal.loginSuccess, Literal.logout);
 						redirect = auth.Logout();
 						break;

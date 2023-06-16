@@ -2,17 +2,14 @@
 
 namespace DataLayer
 {
-    public class DALAuthentication : IData
+    internal class DALAuthentication : IDAL
     {
-
-        internal DALAuthentication() { }
-
         /// <summary>
         /// adds the user details to the database
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public bool Register(User user)
+        public void Register(User user)
         {
             DataSources.listData.Add(user.Username);
             DataSources.listData.Add(user.Password);
@@ -20,7 +17,6 @@ namespace DataLayer
             DataSources.listData.Add(user.Email);
 
             DataSources.userData.Add(DataSources.listData);
-            return true;
         }
 
         /// <summary>

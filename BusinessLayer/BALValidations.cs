@@ -9,11 +9,6 @@ namespace BusinessLayer
     /// </summary>
     public class BALValidations
     {
-        private DALAuthentication dalAuth;
-        public BALValidations()
-        {
-            dalAuth = new DALAuthentication();
-        }
         /// <summary>
         /// Calls data method to check if user name is valid, passes the username and checks if the username exist in the database or not
         /// </summary>
@@ -21,7 +16,10 @@ namespace BusinessLayer
         /// <returns></returns>
         public bool IsValidUsername(string userName)
         {
-            if (!dalAuth.IsUserExist(userName))
+            DataFactory dataFactory = new DataFactory();
+            IDAL dal = dataFactory.CreateObject();
+
+            if (!dal.IsUserExist(userName))
             {
                 return true;
             }
@@ -36,7 +34,9 @@ namespace BusinessLayer
         /// <returns></returns>
         public bool IsValidLogin(string userName, string password)
         {
-            if (dalAuth.IsLoginExist(userName, password))
+            DataFactory dataFactory = new DataFactory();
+            IDAL dal = dataFactory.CreateObject();
+            if (dal.IsLoginExist(userName, password))
             {
                 return true;
             }
