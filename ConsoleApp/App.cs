@@ -58,7 +58,7 @@ namespace ConsoleApp
 						break;
 					// Logout
 					case 4:
-						Console.WriteLine(Literal.div, Literal.loggedIn, Literal.logout);
+						Console.WriteLine(Literal.div, Literal.loginSuccess, Literal.logout);
 						redirect = auth.Logout();
 						break;
 					// Default
