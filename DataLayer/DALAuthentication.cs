@@ -2,8 +2,11 @@
 
 namespace DataLayer
 {
-	public class DALAuthentication
+	public  class DALAuthentication
 	{
+
+		internal DALAuthentication() { }
+
 		/// <summary>
 		/// adds the user details to the database
 		/// </summary>

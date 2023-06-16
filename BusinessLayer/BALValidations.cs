@@ -21,7 +21,7 @@ namespace BusinessLayer
         /// <returns></returns>
         public bool IsValidUsername(string userName)
         {
-            if (!authenticate.IsExisting(userName))
+            if (!dalAuth.IsExisting(userName))
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace BusinessLayer
         /// <returns></returns>
         public bool IsValidLogin(string userName, string password)
         {
-            if (authenticate.IsExisting(userName, password))
+            if (dalAuth.IsExisting(userName, password))
             {
                 return true;
             }

@@ -33,7 +33,8 @@
         public static string successForgotPassword = "\nPassword changed successfully, redirecting to login page";
         public static string successLogout = "\nLogged out successfully, redirecting to login page.";
 
-        public static string loggedIn = "\nLogin successfull, welcome User.";
+        public static string loginSuccess = "\nLogin successfull, welcome User.";
+        public static string loginFail = "\nLogin failed, create new user";
         public static string logout = "\nDo you want to logout press y";
         public static string login = "\nWelcome to Login Page:";
         public static string register = "\nWelcome to New User, enter your details to create new account:";
