@@ -8,7 +8,11 @@ namespace ConsoleApp
     /// </summary>
     public class Authentication
     {
-        BALAuthentication authenticate = new BALAuthentication();
+        private BALAuthentication authenticate;
+        public Authentication()
+        {
+            authenticate = new BALAuthentication();
+        }
         bool decision;
 
         /// <summary>
