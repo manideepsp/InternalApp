@@ -1,7 +1,7 @@
 ﻿using BusinessModel;
 using System;
 using System.Collections.Generic;
-//using DataSources;
+//using DataLayer;
 
 namespace ConsoleApp
 {
@@ -16,14 +16,14 @@ namespace ConsoleApp
 		public static void Main()
 		{
 			//objects creation
-			Literal lit = new Literal();
 			Authentication authenticate = new Authentication();
+			User user = new User();
 
 			//DataSources.userData.Add(new List<string> { "name", "password", "emial", "mobile" });
 			//Console.WriteLine(DataSources.userData[0][1]);
 
-			Console.WriteLine(lit.div);
-			Console.WriteLine(lit.menu);
+			Console.WriteLine(Literal.div);
+			Console.WriteLine(Literal.menu);
 			int input = Convert.ToInt32(Console.ReadLine());
 			int redirect = input;
 			bool flag = true;
@@ -35,35 +35,30 @@ namespace ConsoleApp
 					case 0:
 						flag = false;
 						break;
-
 					//login
 					case 1:
-						Console.WriteLine(lit.div, lit.login);
-						redirect = authenticate.Login(user, lit);
+						Console.WriteLine(Literal.div, Literal.login);
+						redirect = authenticate.Login(user);
 						break;
-
 					//register
 					case 2:
-						Console.WriteLine(lit.div, lit.register);
-						redirect = authenticate.Register(user, lit);
+						Console.WriteLine(Literal.div, Literal.register);
+						redirect = authenticate.Register(user);
 						break;
-
 					//forgot password
 					case 3:
-						Console.WriteLine(lit.div, lit.forgotPassword);
-						redirect = authenticate.ForgotPassword(user, lit);
+						Console.WriteLine(Literal.div, Literal.forgotPassword);
+						redirect = authenticate.ForgotPassword(user);
 						break;
-
 					//logout
 					case 4:
-						Console.WriteLine(lit.div, lit.loggedIn, lit.logout);
-						redirect = authenticate.Logout(lit);
+						Console.WriteLine(Literal.div, Literal.loggedIn, Literal.logout);
+						redirect = authenticate.Logout();
 						break;
-
 					//default
 					default:
-						Console.WriteLine(lit.div, lit.switchDefault);
-						redirect = authenticate.SwitchDefault(lit);
+						Console.WriteLine(Literal.div, Literal.switchDefault);
+						redirect = authenticate.SwitchDefault();
 						break;
 				}
 			}

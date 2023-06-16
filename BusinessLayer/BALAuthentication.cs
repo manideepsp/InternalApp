@@ -16,16 +16,16 @@ namespace BusinessLayer
         /// <param name="user"></param>
         /// <param name="lit"></param>
         /// <returns></returns>
-        public bool Login(User user, Literal lit)
+        public bool Login(User user)
         {
-            Console.WriteLine(lit.login);
-            Console.Write(lit.username);
+            Console.WriteLine(Literal.login);
+            Console.Write(Literal.username);
             user.Username = Console.ReadLine();
-            Console.WriteLine(lit.password);
+            Console.WriteLine(Literal.password);
             user.Password = Console.ReadLine();
 
             decision = validate.IsValidLogin(user.Username, user.Password);
-            Console.WriteLine(lit.loggedIn);
+            Console.WriteLine(Literal.loggedIn);
             return decision;
 
         }
@@ -37,59 +37,59 @@ namespace BusinessLayer
         /// <param name="user"></param>
         /// <param name="lit"></param>
         /// <returns></returns>
-        public bool Register(User user, Literal lit)
+        public bool Register(User user)
         {
-            Console.WriteLine(lit.register);
-            Console.Write(lit.username);
+            Console.WriteLine(Literal.register);
+            Console.Write(Literal.username);
             user.Username = Console.ReadLine();
             flag = validate.IsValidUsername(user.Username); //returns true if username is valid, not already exist
             if (!flag)
             {
-                Console.WriteLine(lit.userExist);
+                Console.WriteLine(Literal.userExist);
                 return false;
             }
 
-            Console.Write(lit.password);
+            Console.Write(Literal.password);
             user.Password = Console.ReadLine();
             flag = validate.IsValidPassword(user.Password); //returns true if password is valid
             while (!flag)
             {
-                Console.Write(lit.password);
+                Console.Write(Literal.password);
                 user.Password = Console.ReadLine();
                 flag = validate.IsValidPassword(user.Password);
             }
-            Console.Write(lit.confirmPassword);
+            Console.Write(Literal.confirmPassword);
             user.ConfirmPassword = Console.ReadLine();
             flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword); //returns true id password mathces
             while (!flag)
             {
-                Console.Write(lit.confirmPassword);
+                Console.Write(Literal.confirmPassword);
                 user.ConfirmPassword = Console.ReadLine();
                 flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword);
             }
 
-            Console.Write(lit.mobile);
+            Console.Write(Literal.mobile);
             user.Mobile = Console.ReadLine();
             flag = validate.IsValidMobile(user.Mobile); //returns true if mobile is valid
             while (!flag)
             {
-                Console.Write(lit.mobile);
+                Console.Write(Literal.mobile);
                 user.Mobile = Console.ReadLine();
                 flag = validate.IsValidMobile(user.Mobile);
             }
 
-            Console.Write(lit.email);
+            Console.Write(Literal.email);
             user.Email = Console.ReadLine();
             flag = validate.IsValidEmail(user.Email); //returns true if email is valid
             while (!flag)
             {
-                Console.Write(lit.email);
+                Console.Write(Literal.email);
                 user.Email = Console.ReadLine();
                 flag = validate.IsValidEmail(user.Email);
             }
 
             decision = dataOperation.Register(user);
-            Console.WriteLine(lit.successRegistration);
+            Console.WriteLine(Literal.successRegistration);
             return decision;
 
         }
@@ -100,37 +100,37 @@ namespace BusinessLayer
         /// <param name="user"></param>
         /// <param name="lit"></param>
         /// <returns></returns>
-        public bool ForgotPassword(User user, Literal lit)
+        public bool ForgotPassword(User user)
         {
-            Console.WriteLine(lit.forgotPassword);
-            Console.Write(lit.username);
+            Console.WriteLine(Literal.forgotPassword);
+            Console.Write(Literal.username);
             user.Username = Console.ReadLine();
             decision = validate.IsValidUsername(user.Username); //returns true if username is valid, not already exist
             if (!decision)
             {
-                Console.Write(lit.userExist);
+                Console.Write(Literal.userExist);
                 return false;
             }
 
-            Console.Write(lit.password);
+            Console.Write(Literal.password);
             user.Password = Console.ReadLine();
             flag = validate.IsValidPassword(user.Password); //returns true if password is valid
             while (!flag)
             {
-                Console.Write(lit.password);
+                Console.Write(Literal.password);
                 user.Password = Console.ReadLine();
                 flag = validate.IsValidPassword(user.Password);
             }
-            Console.Write(lit.confirmPassword);
+            Console.Write(Literal.confirmPassword);
             user.ConfirmPassword = Console.ReadLine();
             flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword); //returns true id password mathces
             while (!flag)
             {
-                Console.Write(lit.confirmPassword);
+                Console.Write(Literal.confirmPassword);
                 user.ConfirmPassword = Console.ReadLine();
                 flag = validate.IsPasswordEquals(user.Password, user.ConfirmPassword);
             }
-            Console.WriteLine(lit.successForgotPassword);
+            Console.WriteLine(Literal.successForgotPassword);
             return true;
         }
 
@@ -139,14 +139,14 @@ namespace BusinessLayer
         /// </summary>
         /// <param name="lit"></param>
         /// <returns></returns>
-        public bool Logout(Literal lit)
+        public bool Logout()
         {
-            Console.WriteLine(lit.logout);
+            Console.WriteLine(Literal.logout);
             ConsoleKeyInfo cki = Console.ReadKey();
             if (cki.Key == ConsoleKey.Y)
             {
                 decision = true;
-                Console.WriteLine(lit.successLogout);
+                Console.WriteLine(Literal.successLogout);
             }
             else
             {
@@ -160,9 +160,9 @@ namespace BusinessLayer
         /// </summary>
         /// <param name="lit"></param>
         /// <returns></returns>
-        public bool SwitchDefault(Literal lit)
+        public bool SwitchDefault()
         {
-            Console.WriteLine(lit.switchDefault);
+            Console.WriteLine(Literal.switchDefault);
             ConsoleKeyInfo cki = Console.ReadKey();
             if (cki.Key == ConsoleKey.Y)
             {

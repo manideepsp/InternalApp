@@ -17,9 +17,9 @@ namespace ConsoleApp
         /// <param name="user"></param>
         /// <param name="lit"></param>
         /// <returns></returns>
-        public int Login(User user, Literal lit)
+        public int Login(User user)
         {
-            decision = authenticate.Login(user, lit);
+            decision = authenticate.Login(user);
             if (decision)
             {
                 return 4;
@@ -28,9 +28,9 @@ namespace ConsoleApp
         }
 
         //Implements logout authentication signature
-        public int Logout(Literal lit)
+        public int Logout()
         {
-            decision = authenticate.Logout(lit);
+            decision = authenticate.Logout();
             if (decision)
             {
                 return 1;
@@ -39,16 +39,16 @@ namespace ConsoleApp
         }
 
         //Implements Register authentication signature
-        public int Register(User user, Literal lit)
+        public int Register(User user)
         {
-            decision = authenticate.Register(user, lit);
+            decision = authenticate.Register(user);
             return 1;
         }
 
         //Implements ForgotPassword authentication signature
-        public int ForgotPassword(User user, Literal lit)
+        public int ForgotPassword(User user)
         {
-            decision = authenticate.ForgotPassword(user, lit);
+            decision = authenticate.ForgotPassword(user);
             if (decision)
             {
                 return 1;
@@ -57,9 +57,9 @@ namespace ConsoleApp
         }
 
         //Implements SwitchDefault signature
-        public int SwitchDefault(Literal lit)
+        public int SwitchDefault()
         {
-            decision = authenticate.SwitchDefault(lit);
+            decision = authenticate.SwitchDefault();
             if (decision)
             {
                 return 0;
