@@ -11,12 +11,20 @@ namespace DataLayer
         /// <returns></returns>
         public void Register(User user)
         {
-            DataSources.listData.Add(user.Username);
-            DataSources.listData.Add(user.Password);
-            DataSources.listData.Add(user.Mobile);
-            DataSources.listData.Add(user.Email);
+            DALDataSources.UserData.Add(user);
+        }
 
-            DataSources.userData.Add(DataSources.listData);
+        /// <summary>
+        /// Updates the user password
+        /// </summary>
+        /// <param name="user"></param>
+        public void UpdatePassword(User user)
+        {
+            User obj = DALDataSources.UserData.Find(obj => obj.Username == user.Username);
+            if (obj != null)
+            {
+                obj.Password = user.Password;
+            }
         }
 
         /// <summary>
@@ -24,12 +32,12 @@ namespace DataLayer
         /// </summary>
         /// <param name="username"></param>
         /// <returns></returns>
-        public bool IsUserExist(string username)
+        public bool IsUserExist(User user)
         {
-            for (int i = 0; i < DataSources.userData.Count; i++)
+            User obj = DALDataSources.UserData.Find(obj => obj.Username == user.Username);
+            if (obj != null)
             {
-                if (DataSources.userData[i].Contains(username))
-                    return true;
+                return true;
             }
             return false;
         }
@@ -40,12 +48,15 @@ namespace DataLayer
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public bool IsLoginExist(string username, string password)
+        public bool IsLoginExist(User user)
         {
-            for (int i = 0; i < DataSources.userData.Count; i++)
+            User obj = DALDataSources.UserData.Find(obj => obj.Username == user.Username);
+            if (obj != null)
             {
-                if (DataSources.userData[i].Contains(username) && DataSources.userData[i].Contains(password))
+                if (obj.Password == user.Password)
+                {
                     return true;
+                }
             }
             return false;
         }

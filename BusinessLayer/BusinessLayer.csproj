@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BALAuthentication.cs" />
-    <Compile Include="BALValidations.cs" />
+    <Compile Include="BLLAuthentication.cs" />
+    <Compile Include="BLLValidations.cs" />
+    <Compile Include="BLLFactory.cs" />
+    <Compile Include="IBLLAuthentication.cs" />
+    <Compile Include="IBLLValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,9 @@
 
 namespace DataLayer
 {
+    /// <summary>
+    /// Interface defining the methods that to be used with Factory pattern
+    /// </summary>
     public interface IDAL
     {
         /// <summary>
@@ -14,16 +17,21 @@ namespace DataLayer
         /// <summary>
         /// checks if the username, overloaded with another method with similar functionality
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
-        bool IsUserExist(string username);
+        bool IsUserExist(User user);
 
         /// <summary>
         /// checks if username and password pair exist in database or not
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
+        /// <param name="user"></param>
         /// <returns></returns>
-        bool IsLoginExist(string username, string password);
+        bool IsLoginExist(User user);
+
+        /// <summary>
+        /// Updates the user details in the data source
+        /// </summary>
+        /// <param name="user"></param>
+        public void UpdatePassword(User user);
     }
 }

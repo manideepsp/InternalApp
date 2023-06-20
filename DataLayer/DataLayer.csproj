@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DALAuthentication.cs" />
-    <Compile Include="DataFactory.cs" />
-    <Compile Include="DataSources.cs" />
+    <Compile Include="DALDataFactory.cs" />
+    <Compile Include="DALDataSources.cs" />
     <Compile Include="IDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
